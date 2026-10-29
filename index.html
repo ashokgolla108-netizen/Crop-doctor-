@@ -164,7 +164,7 @@
     .rec-rainy-card h3 { color: var(--accent-rainy); }
 
     .rec-item {
-      padding: 8px 12px;
+      padding: 10px 12px;
       background: white;
       border-radius: 6px;
       margin-bottom: 8px;
@@ -186,6 +186,24 @@
       color: #616161;
       font-size: 0.82rem;
       font-style: italic;
+    }
+
+    .rec-targets {
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: #2e7d32;
+      font-weight: 700;
+    }
+
+    .compat-warning {
+      background-color: #fff3e0;
+      border: 1px solid #ffe0b2;
+      color: #e65100;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-top: 6px;
     }
 
     /* Protocol Box */
@@ -1237,13 +1255,14 @@
     
     // 1. Insecticide Sucking (Aphids, Jassids & Whiteflies)
     const maxSucking = Math.max(maxAphid, maxWhitefly);
-    if (maxSucking >= 4 || maxWhitefly >= 3 || maxAphid >= 3) {
+    if (maxSucking >= 3) {
       dryItems.push({
         role: "Aphid, Jassid & Whitefly Outbreak Control:",
-        tech: "Diafenthiuron 50% WP (OR Voliam Flexi if high borer too)",
+        tech: "Diafenthiuron 50% WP",
         dosePump: "20 g / 15L pump",
         doseLiter: "1.33 g / L",
-        brand: "(Brands: Syngenta Polo, Dhanuka Pager, Voliam Flexi)"
+        brand: "(Brands: Syngenta Polo, Dhanuka Pager)",
+        targets: "Whiteflies (Tella Doma), Aphids (Penu Banka), Jassids (Paccha Doma), Mite suppression"
       });
     } else if (maxSucking === 2) {
       dryItems.push({
@@ -1251,7 +1270,8 @@
         tech: "Acetamiprid 20% SP",
         dosePump: "8 g / 15L pump",
         doseLiter: "0.50 g / L",
-        brand: "(Brands: Tata Manik, Dhanuka Dhanpreet)"
+        brand: "(Brands: Tata Manik, Dhanuka Dhanpreet)",
+        targets: "Whiteflies, Aphids, Jassids"
       });
     } else if (maxSucking === 1) {
       dryItems.push({
@@ -1259,19 +1279,22 @@
         tech: "Acetamiprid 20% SP (OR Imidacloprid 17.8% SL)",
         dosePump: "5 g / 15L pump (7.5 ml Imida)",
         doseLiter: "0.35 g / L (0.5 ml Imida)",
-        brand: "(Brands: Tata Manik / Bayer Confidor)"
+        brand: "(Brands: Tata Manik / Bayer Confidor)",
+        targets: "Whiteflies, Aphids, Jassids"
       });
     }
 
     // 2. Insecticide Borers/Thrips/Miners/Tuta
     const maxInsect = Math.max(maxThrips, maxMiner, maxTuta);
-    if (maxInsect >= 4 || maxThrip >= 3 || maxTuta >= 3) {
+    if (maxInsect >= 3) {
       dryItems.push({
         role: "Resistant Thrips, Soodi Purugu & Ugu Purugu Knockout:",
         tech: "Isocycloseram 9.2% w/w DC",
         dosePump: "15–18 ml / 15L pump",
         doseLiter: "1.0–1.2 ml / L",
-        brand: "(Brand: Syngenta Simodis)"
+        brand: "(Brand: Syngenta Simodis)",
+        targets: "Black Thrips (Tamara Purugulu), Pinworm (Soodi Purugu / Tuta), Leaf Miner (Ugu Purugu), Fruit Borers (Kaya Toluchu)",
+        compatAlert: " Tank Mixing Note: Simodis DC is a sensitive formulation. Apply as a standalone insect pass or test small bucket slurry before mixing with heavy fungicides."
       });
     } else if (maxInsect === 2) {
       dryItems.push({
@@ -1279,7 +1302,8 @@
         tech: "Chlorantraniliprole 18.5% SC + Abamectin 1.9% EC",
         dosePump: "6 ml Coragen + 15 ml Abamectin / 15L",
         doseLiter: "0.40 ml + 1.0 ml / L",
-        brand: "(Brands: FMC Coragen + Crystal Abacin)"
+        brand: "(Brands: FMC Coragen + Crystal Abacin)",
+        targets: "Fruit Borers, Pinworm (Soodi Purugu), Leaf Miners (Ugu Purugu), Red Spider Mites"
       });
     } else if (maxInsect === 1) {
       dryItems.push({
@@ -1287,18 +1311,20 @@
         tech: "Fipronil 5% SC + Emamectin Benzoate 5% SG",
         dosePump: "30 ml Fipronil + 10 g Emamectin / 15L",
         doseLiter: "2.0 ml + 0.65 g / L",
-        brand: "(Brands: Bayer Regent + Syngenta Proclaim)"
+        brand: "(Brands: Bayer Regent + Syngenta Proclaim)",
+        targets: "Thrips, Early Leaf Miner, Fruit Borers, Early Pinworm"
       });
     }
 
-    // 3. Mites (If high & not covered)
+    // 3. Mites (If high & not covered by Simodis)
     if (maxMite >= 2 && maxSucking < 3 && maxInsect < 3) {
       dryItems.push({
         role: "Mite Specialist Guard:",
         tech: "Abamectin 1.9% EC",
         dosePump: "15 ml / 15L pump",
         doseLiter: "1.0 ml / L",
-        brand: "(Brands: Crystal Abacin, Verma Abamectin)"
+        brand: "(Brands: Crystal Abacin, Verma Abamectin)",
+        targets: "Red Spider Mites & Yellow Mites (Nalli)"
       });
     }
 
@@ -1310,7 +1336,8 @@
         tech: "Fluopyram 17.7% + Tebuconazole 17.7% SC",
         dosePump: "15 ml / 15L pump",
         doseLiter: "1.0 ml / L",
-        brand: "(Brand: Bayer Luna Experience)"
+        brand: "(Brand: Bayer Luna Experience)",
+        targets: "Severe Early Blight (Alternaria), Latent Fruit Rot, Powdery Mildew, Target Leaf Spot"
       });
     } else if (maxDryDisease === 3) {
       dryItems.push({
@@ -1318,7 +1345,8 @@
         tech: "Azoxystrobin 11% + Tebuconazole 18.3% SC",
         dosePump: "20 ml / 15L pump",
         doseLiter: "1.33 ml / L",
-        brand: "(Brand: Adama Custodia)"
+        brand: "(Brand: Adama Custodia)",
+        targets: "Early Blight, Fruit Rot / Anthracnose, Stem Lesions, Powdery Mildew"
       });
     } else if (maxDryDisease === 2) {
       dryItems.push({
@@ -1326,7 +1354,8 @@
         tech: "Azoxystrobin 18.2% + Difenoconazole 11.4% SC",
         dosePump: "15 ml / 15L pump",
         doseLiter: "1.0 ml / L",
-        brand: "(Brands: Syngenta Amistar Top / Adama Mirador Duo)"
+        brand: "(Brands: Syngenta Amistar Top / Adama Mirador Duo)",
+        targets: "Early Blight, Leaf Spots, Powdery Mildew"
       });
     } else if (maxDryDisease === 1) {
       dryItems.push({
@@ -1334,7 +1363,8 @@
         tech: "Mancozeb 75% WP",
         dosePump: "30 to 40 g / 15L pump",
         doseLiter: "2.0 to 2.5 g / L",
-        brand: "(Brands: Indofil M-45, UPL Dithane M-45)"
+        brand: "(Brands: Indofil M-45, UPL Dithane M-45)",
+        targets: "Preventive Early Blight, Leaf Spots, Anthracnose"
       });
     }
 
@@ -1345,15 +1375,17 @@
         tech: "Kasugamycin 3% SL",
         dosePump: "20 to 25 ml / 15L pump",
         doseLiter: "1.33 to 1.66 ml / L",
-        brand: "(Brands: Dhanuka Kasu-B, Biostadt Kasugacel)"
+        brand: "(Brands: Dhanuka Kasu-B, Biostadt Kasugacel)",
+        targets: "Bacterial Spot (Xanthomonas), Bacterial Speck (Pseudomonas), Canker"
       });
     } else if (maxBact >= 1) {
       dryItems.push({
         role: "Bacterial Spot Preventive Guard:",
-        tech: "Streptomycin Sulphate + Tetracycline HCl",
+        tech: "Streptomycin Sulphate 90% + Tetracycline HCl 10%",
         dosePump: "1.5 to 2 g / 15L pump",
         doseLiter: "0.10 to 0.13 g / L",
-        brand: "(Brands: Aries Plantomycin, HA Streptocycline)"
+        brand: "(Brands: Aries Plantomycin, HA Streptocycline)",
+        targets: "Preventive Bacterial Leaf Spot & Speck"
       });
     }
 
@@ -1362,7 +1394,8 @@
       tech: "Organosilicone Super-Spreader",
       dosePump: "5 ml / 15L pump",
       doseLiter: "0.33 ml / L",
-      brand: "(Add directly to spray pump last)"
+      brand: "(Add directly to spray pump last)",
+      targets: "Instant wetting, rainfastness & deep leaf penetration"
     });
 
     // BUILD RAINY TANK MIX
@@ -1381,7 +1414,8 @@
         tech: "Oxathiapiprolin 0.7% + Mandipropamid 14% SC",
         dosePump: "20 ml / 15L pump",
         doseLiter: "1.33 ml / L",
-        brand: "(Brands: Syngenta Orondis Opti / Orondis Ultra)"
+        brand: "(Brands: Syngenta Orondis Opti / Orondis Ultra)",
+        targets: "Extreme Late Blight (Phytophthora) Eradication, Downy Mildew"
       });
     } else if (maxRainyDisease === 3) {
       rainyItems.splice(rainyItems.length - 1, 0, {
@@ -1389,7 +1423,8 @@
         tech: "Dimethomorph 50% WP + Mancozeb 75% WP",
         dosePump: "15 g + 30 g / 15L pump",
         doseLiter: "1.0 g + 2.0 g / L",
-        brand: "(Brands: BASF Acrobat + Indofil M-45)"
+        brand: "(Brands: BASF Acrobat + Indofil M-45)",
+        targets: "Late Blight Knockdown, Downy Mildew"
       });
     } else if (maxRainyDisease === 2) {
       rainyItems.splice(rainyItems.length - 1, 0, {
@@ -1397,7 +1432,8 @@
         tech: "Cymoxanil 8% + Mancozeb 64% WP",
         dosePump: "30 g / 15L pump",
         doseLiter: "2.0 g / L",
-        brand: "(Brands: Corteva Curzate, Crystal Profilux)"
+        brand: "(Brands: Corteva Curzate, Crystal Profilux)",
+        targets: "Late Blight Curative & Preventive"
       });
     } else {
       rainyItems.splice(rainyItems.length - 1, 0, {
@@ -1405,7 +1441,8 @@
         tech: "Copper Oxychloride 50% WP (COC)",
         dosePump: "30 g / 15L pump",
         doseLiter: "2.0 g / L",
-        brand: "(Brands: Tata Blitox, Dhanuka Dhanucop)"
+        brand: "(Brands: Tata Blitox, Dhanuka Dhanucop)",
+        targets: "Late Blight Prevention & Bacterial Spot Suppression"
       });
     }
 
@@ -1415,7 +1452,8 @@
         tech: "Copper Hydroxide 53.8% DF + Kasugamycin 3% SL",
         dosePump: "20 g + 25 ml / 15L pump",
         doseLiter: "1.33 g + 1.66 ml / L",
-        brand: "(Brands: Corteva Kocide 2000 + Dhanuka Kasu-B)"
+        brand: "(Brands: Corteva Kocide 2000 + Dhanuka Kasu-B)",
+        targets: "Systemic Bacterial Spot, Speck & Bacterial Canker"
       });
     }
 
@@ -1432,6 +1470,8 @@
           <span class="dose-pump">${item.dosePump}</span> 
           <span class="dose-liter">${item.doseLiter}</span><br>
           <span class="rec-brand">${item.brand}</span>
+          ${item.targets ? `<div class="rec-targets">Targets: ${item.targets}</div>` : ''}
+          ${item.compatAlert ? `<div class="compat-warning">${item.compatAlert}</div>` : ''}
         </div>
       `;
     });
@@ -1449,6 +1489,8 @@
           <span class="dose-pump">${item.dosePump}</span> 
           <span class="dose-liter">${item.doseLiter}</span><br>
           <span class="rec-brand">${item.brand}</span>
+          ${item.targets ? `<div class="rec-targets">Targets: ${item.targets}</div>` : ''}
+          ${item.compatAlert ? `<div class="compat-warning">${item.compatAlert}</div>` : ''}
         </div>
       `;
     });

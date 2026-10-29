@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tomato Crop Protection & Chemical Formula Matrix</title>
+  <title>Tomato Crop Protection & Chemical Formula Matrix (Per Pump & Per Liter)</title>
   <style>
     :root {
       --primary: #1b5e20;
@@ -32,7 +32,7 @@
     }
 
     .container {
-      max-width: 1120px;
+      max-width: 1160px;
       margin: 0 auto;
     }
 
@@ -133,7 +133,7 @@
     /* Grid Layout */
     .tier-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
       gap: 22px;
     }
 
@@ -250,10 +250,32 @@
       font-style: italic;
     }
 
-    .dose {
+    .mix-item .alt-divider {
+      color: #c62828;
+      font-weight: 800;
+      margin: 6px 0 2px 0;
+      display: block;
+    }
+
+    .dose-group {
+      margin-top: 4px;
+    }
+
+    .dose-pump {
       color: #b71c1c;
       font-weight: 800;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+    }
+
+    .dose-liter {
+      color: #006064;
+      font-weight: 700;
+      font-size: 0.82rem;
+      background: #e0f2f1;
+      padding: 1px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-left: 6px;
     }
 
     .target-tags {
@@ -292,8 +314,8 @@
 <div class="container">
 
   <header>
-    <h1>Tomato Crop Protection & Chemical Formula Matrix</h1>
-    <p>Complete Tier-Based Reference Guide with Technical Names, Brand Examples, & Tank Doses (Per 15L Pump)</p>
+    <h1>Tomato Crop Protection & Chemical Matrix</h1>
+    <p>Complete Tier-Based Reference Guide with Technical Formulas, Alternatives, Brand Examples & Doses (Per 15L Pump & Per Liter)</p>
   </header>
 
   <!-- Gold Standard Tank Mixing Protocol -->
@@ -305,7 +327,7 @@
       <li><strong>WP / DF / WG Powders:</strong> Dissolve completely in Bucket 1 and pour into pump.</li>
       <li><strong>SG / SP Granules & Powders:</strong> Dissolve completely in Bucket 2 and pour into pump.</li>
       <li><strong>SC / SL / EC Liquids:</strong> Mix in Bucket 3 with water and pour into pump.</li>
-      <li>Fill pump to 15 Liters total water. Finally, add <strong>5 ml Silicone Super-Spreader</strong> last. Stir gently and spray within 1–2 hours.</li>
+      <li>Fill pump to 15 Liters total water. Finally, add <strong>5 ml Silicone Super-Spreader</strong> last (approx. 0.33 ml/L). Stir gently and spray within 1–2 hours.</li>
     </ol>
   </div>
 
@@ -332,42 +354,77 @@
         <!-- DRY CONFIG -->
         <div class="config-dry">
           <span class="weather-badge badge-dry">Dry / Clear Weather Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. Contact Fungal Guard:</span>
-              <span class="tech-name">Mancozeb 75% WP</span> — <span class="dose">30 to 40 g</span><br>
+              <span class="tech-name">Mancozeb 75% WP</span>
+              <div class="dose-group">
+                <span class="dose-pump">30–40 g / 15L pump</span>
+                <span class="dose-liter">2.0–2.5 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Indofil M-45, UPL Dithane M-45, Dhanuka M-45)</span>
+              <span class="alt-divider">OR (Powdery Mildew & Mite Option):</span>
+              <span class="tech-name">Wettable Sulphur 80% WP</span>
+              <div class="dose-group">
+                <span class="dose-pump">30–40 g / 15L pump</span>
+                <span class="dose-liter">2.0–2.5 g / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Tata Sultaf, Dhanuka Sulvit)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Systemic Sucking Insecticide:</span>
-              <span class="tech-name">Acetamiprid 20% SP</span> — <span class="dose">5 to 8 g</span><br>
-              <span class="brand-examples">(Brands: Tata Manik, Dhanuka Dhanpreet, HPM Baadshah, Agriventure White Rider)</span>
+              <span class="tech-name">Acetamiprid 20% SP</span>
+              <div class="dose-group">
+                <span class="dose-pump">5–8 g / 15L pump</span>
+                <span class="dose-liter">0.35–0.50 g / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Tata Manik, Dhanuka Dhanpreet, HPM Baadshah)</span>
+              <span class="alt-divider">OR Alternative Option:</span>
+              <span class="tech-name">Imidacloprid 17.8% SL</span>
+              <div class="dose-group">
+                <span class="dose-pump">7.5 ml / 15L pump</span>
+                <span class="dose-liter">0.50 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Bayer Confidor, Tata Media, Dhanuka Victor)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Thrips & Leaf Miner Guard:</span>
-              <span class="tech-name">Fipronil 5% SC</span> — <span class="dose">30 ml</span><br>
+              <span class="tech-name">Fipronil 5% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">30 ml / 15L pump</span>
+                <span class="dose-liter">2.0 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Bayer Regent, Parijat Fax)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Borer & Pinworm Guard:</span>
-              <span class="tech-name">Emamectin Benzoate 5% SG</span> — <span class="dose">10 g</span><br>
-              <span class="brand-examples">(Brands: Syngenta Proclaim, Dhanuka EM-1, Crystal Claim)</span>
+              <span class="tech-name">Emamectin Benzoate 5% SG</span>
+              <div class="dose-group">
+                <span class="dose-pump">10 g / 15L pump</span>
+                <span class="dose-liter">0.65–0.70 g / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Syngenta Proclaim, Dhanuka EM-1)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">5. Spreader / Sticker:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
           <div class="target-tags">
-            <span class="tag">Early Blight (Alternaria)</span>
-            <span class="tag">Leaf Spots (Septoria)</span>
-            <span class="tag">Whiteflies (Tella Doma)</span>
+            <span class="tag">Early Blight</span>
+            <span class="tag">Leaf Spots</span>
+            <span class="tag">Powdery Mildew</span>
+            <span class="tag">Whiteflies</span>
             <span class="tag">Aphids / Jassids</span>
             <span class="tag">Thrips</span>
             <span class="tag highlight">Ugu Purugu (Leaf Miner)</span>
-            <span class="tag highlight">Soodi Purugu (Tuta absoluta)</span>
+            <span class="tag highlight">Soodi Purugu (Tuta)</span>
             <span class="tag">Fruit Borers</span>
           </div>
         </div>
@@ -375,44 +432,74 @@
         <!-- RAINY CONFIG -->
         <div class="config-rainy" style="display: none;">
           <span class="weather-badge badge-rainy">Rainy / Humid Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. Dual Fungal & Bacterial Guard:</span>
-              <span class="tech-name">Copper Oxychloride 50% WP (COC)</span> — <span class="dose">30 g</span><br>
+              <span class="tech-name">Copper Oxychloride 50% WP (COC)</span>
+              <div class="dose-group">
+                <span class="dose-pump">30 g / 15L pump</span>
+                <span class="dose-liter">2.0 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Tata Blitox, Dhanuka Dhanucop, UPL Cupramer)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Systemic Bactericide:</span>
-              <span class="tech-name">Streptomycin Sulphate 90% + Tetracycline HCl 10% SP</span> — <span class="dose">1.5 to 2 g</span><br>
+              <span class="tech-name">Streptomycin Sulphate 90% + Tetracycline HCl 10% SP</span>
+              <div class="dose-group">
+                <span class="dose-pump">1.5–2 g / 15L pump</span>
+                <span class="dose-liter">0.10–0.13 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Aries Plantomycin, Hindustan Antibiotics Streptocycline)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Systemic Sucking Insecticide:</span>
-              <span class="tech-name">Acetamiprid 20% SP</span> — <span class="dose">5 to 8 g</span><br>
+              <span class="tech-name">Acetamiprid 20% SP</span>
+              <div class="dose-group">
+                <span class="dose-pump">5–8 g / 15L pump</span>
+                <span class="dose-liter">0.35–0.50 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Tata Manik, Dhanuka Dhanpreet)</span>
+              <span class="alt-divider">OR Alternative Option:</span>
+              <span class="tech-name">Imidacloprid 17.8% SL</span>
+              <div class="dose-group">
+                <span class="dose-pump">7.5 ml / 15L pump</span>
+                <span class="dose-liter">0.50 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Bayer Confidor, Tata Media)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Thrips & Leaf Miner Guard:</span>
-              <span class="tech-name">Fipronil 5% SC</span> — <span class="dose">30 ml</span><br>
+              <span class="tech-name">Fipronil 5% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">30 ml / 15L pump</span>
+                <span class="dose-liter">2.0 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Bayer Regent, Parijat Fax)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">5. Borer & Pinworm Guard:</span>
-              <span class="tech-name">Emamectin Benzoate 5% SG</span> — <span class="dose">10 g</span><br>
+              <span class="tech-name">Emamectin Benzoate 5% SG</span>
+              <div class="dose-group">
+                <span class="dose-pump">10 g / 15L pump</span>
+                <span class="dose-liter">0.65–0.70 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Syngenta Proclaim, Dhanuka EM-1)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">6. Spreader / Rainfast Guard:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
           <div class="target-tags">
             <span class="tag">Late Blight Prevention</span>
-            <span class="tag">Bacterial Leaf Spot (Xanthomonas)</span>
-            <span class="tag">Bacterial Speck</span>
-            <span class="tag">Damping Off & Stem Rot</span>
+            <span class="tag">Bacterial Spot & Speck</span>
+            <span class="tag">Stem Rot</span>
             <span class="tag highlight">Ugu Purugu</span>
             <span class="tag highlight">Soodi Purugu</span>
             <span class="tag">Sucking Pests & Borers</span>
@@ -433,30 +520,56 @@
         <!-- DRY CONFIG -->
         <div class="config-dry">
           <span class="weather-badge badge-dry">Dry / Clear Weather Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. Systemic Broad Fungicide:</span>
-              <span class="tech-name">Azoxystrobin 18.2% + Difenoconazole 11.4% SC</span> — <span class="dose">15 ml</span><br>
-              <span class="brand-examples">(Brands: Syngenta Amistar Top, Adama Mirador Duo)</span><br>
-              <em>OR</em> <span class="tech-name">Tebuconazole 50% + Trifloxystrobin 25% WG</span> — <span class="dose">10 g</span><br>
+              <span class="tech-name">Azoxystrobin 18.2% + Difenoconazole 11.4% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15 ml / 15L pump</span>
+                <span class="dose-liter">1.0 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Syngenta Amistar Top, Adama Mirador Duo)</span>
+              <span class="alt-divider">OR Alternative Option:</span>
+              <span class="tech-name">Tebuconazole 50% + Trifloxystrobin 25% WG</span>
+              <div class="dose-group">
+                <span class="dose-pump">10 g / 15L pump</span>
+                <span class="dose-liter">0.65–0.70 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: Bayer Nativo)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Mite & Whitefly Specialist:</span>
-              <span class="tech-name">Diafenthiuron 50% WP</span> — <span class="dose">20 g</span><br>
+              <span class="tech-name">Diafenthiuron 50% WP</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 g / 15L pump</span>
+                <span class="dose-liter">1.33 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Syngenta Polo, Dhanuka Pager, Adama Agas)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Borer & Pinworm Diamide:</span>
-              <span class="tech-name">Chlorantraniliprole 18.5% SC</span> — <span class="dose">6 ml</span><br>
-              <span class="brand-examples">(Brand: FMC Coragen)</span><br>
-              <em>OR</em> <span class="tech-name">Flubendiamide 480 SC</span> — <span class="dose">5 ml</span><br>
+              <span class="tech-name">Chlorantraniliprole 18.5% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">6 ml / 15L pump</span>
+                <span class="dose-liter">0.40 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brand: FMC Coragen)</span>
+              <span class="alt-divider">OR Alternative Option:</span>
+              <span class="tech-name">Flubendiamide 480 SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: Bayer Fame)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Spreader / Sticker:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
@@ -464,9 +577,9 @@
             <span class="tag">Early Blight</span>
             <span class="tag">Powdery Mildew</span>
             <span class="tag">Fruit Rot / Anthracnose</span>
-            <span class="tag highlight">Nalli (Red Spider & Yellow Mite)</span>
+            <span class="tag highlight">Nalli (Mites)</span>
             <span class="tag">Whiteflies</span>
-            <span class="tag highlight">Soodi Purugu (Pinworm)</span>
+            <span class="tag highlight">Soodi Purugu</span>
             <span class="tag">Fruit Borers</span>
           </div>
         </div>
@@ -474,31 +587,51 @@
         <!-- RAINY CONFIG -->
         <div class="config-rainy" style="display: none;">
           <span class="weather-badge badge-rainy">Rainy / Humid Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. Late Blight Translaminar Specialist:</span>
-              <span class="tech-name">Cymoxanil 8% + Mancozeb 64% WP</span> — <span class="dose">30 g</span><br>
+              <span class="tech-name">Cymoxanil 8% + Mancozeb 64% WP</span>
+              <div class="dose-group">
+                <span class="dose-pump">30 g / 15L pump</span>
+                <span class="dose-liter">2.0 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Corteva Curzate, Crystal Profilux)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Upgraded Copper & Bactericide:</span>
-              <span class="tech-name">Copper Hydroxide 53.8% DF</span> — <span class="dose">20 g</span> + <span class="tech-name">Streptomycin + Tetracycline</span> — <span class="dose">2 g</span><br>
-              <span class="brand-examples">(Brands: Corteva Kocide 2000 + Plantomycin)</span>
+              <span class="tech-name">Copper Hydroxide 53.8% DF</span> + <span class="tech-name">Streptomycin + Tetracycline</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 g + 2 g / 15L pump</span>
+                <span class="dose-liter">1.33 g + 0.13 g / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Corteva Kocide 2000 + Aries Plantomycin)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Mite & Whitefly Specialist:</span>
-              <span class="tech-name">Diafenthiuron 50% WP</span> — <span class="dose">20 g</span><br>
+              <span class="tech-name">Diafenthiuron 50% WP</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 g / 15L pump</span>
+                <span class="dose-liter">1.33 g / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Syngenta Polo, Dhanuka Pager)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Borer & Pinworm Diamide:</span>
-              <span class="tech-name">Chlorantraniliprole 18.5% SC</span> — <span class="dose">6 ml</span><br>
+              <span class="tech-name">Chlorantraniliprole 18.5% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">6 ml / 15L pump</span>
+                <span class="dose-liter">0.40 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: FMC Coragen)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">5. Spreader / Rainfast Guard:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
@@ -526,41 +659,66 @@
         <!-- DRY CONFIG -->
         <div class="config-dry">
           <span class="weather-badge badge-dry">Dry / Clear Weather Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. Advanced Systemic Curative Fungicide:</span>
-              <span class="tech-name">Azoxystrobin 11% + Tebuconazole 18.3% SC</span> — <span class="dose">20 ml</span><br>
+              <span class="tech-name">Azoxystrobin 11% + Tebuconazole 18.3% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 ml / 15L pump</span>
+                <span class="dose-liter">1.33 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Adama Custodia, Tata Contaf Lux)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Systemic Antibiotic Bactericide:</span>
-              <span class="tech-name">Kasugamycin 3% SL</span> — <span class="dose">20 ml</span><br>
+              <span class="tech-name">Kasugamycin 3% SL</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 ml / 15L pump</span>
+                <span class="dose-liter">1.33 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Dhanuka Kasu-B, Biostadt Kasugacel)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Broad-Spectrum Premix Insecticide:</span>
-              <span class="tech-name">Chlorantraniliprole 8.8% + Thiamethoxam 17.5% SC</span> — <span class="dose">15 ml</span><br>
-              <span class="brand-examples">(Brand: Syngenta Voliam Flexi)</span><br>
-              <em>OR</em> <span class="tech-name">Cyantraniliprole 10.26% OD</span> — <span class="dose">30 ml</span> (Standalone pass)<br>
+              <span class="tech-name">Chlorantraniliprole 8.8% + Thiamethoxam 17.5% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15 ml / 15L pump</span>
+                <span class="dose-liter">1.0 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brand: Syngenta Voliam Flexi)</span>
+              <span class="alt-divider">OR Standalone Pass Option:</span>
+              <span class="tech-name">Cyantraniliprole 10.26% OD</span>
+              <div class="dose-group">
+                <span class="dose-pump">30 ml / 15L pump</span>
+                <span class="dose-liter">2.0 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: FMC Benevia)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Deep Leaf Miner & Mite Specialist:</span>
-              <span class="tech-name">Abamectin 1.9% EC</span> — <span class="dose">15 ml</span><br>
+              <span class="tech-name">Abamectin 1.9% EC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15 ml / 15L pump</span>
+                <span class="dose-liter">1.0 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Crystal Abacin, Verma Abamectin)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">5. Spreader / Penetrant:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
           <div class="target-tags">
             <span class="tag">Severe Early Blight</span>
-            <span class="tag">Stem Canker / Lesions</span>
+            <span class="tag">Stem Canker</span>
             <span class="tag">Fruit Rot</span>
-            <span class="tag highlight">Ugu Purugu (Deep Leaf Miner)</span>
+            <span class="tag highlight">Ugu Purugu (Deep Miner)</span>
             <span class="tag highlight">Soodi Purugu</span>
             <span class="tag">Thrips & Whiteflies</span>
             <span class="tag highlight">Nalli (Mites)</span>
@@ -570,33 +728,58 @@
         <!-- RAINY CONFIG -->
         <div class="config-rainy" style="display: none;">
           <span class="weather-badge badge-rainy">Rainy / Humid Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. Late Blight Cell-Rupturing Knockdown:</span>
-              <span class="tech-name">Dimethomorph 50% WP</span> — <span class="dose">15 g</span> + <span class="tech-name">Mancozeb 75% WP</span> — <span class="dose">30 g</span><br>
-              <span class="brand-examples">(Brand: BASF Acrobat + M-45)</span><br>
-              <em>OR</em> <span class="tech-name">Fluopicolide + Propamocarb HCl SC</span> — <span class="dose">30 ml</span><br>
+              <span class="tech-name">Dimethomorph 50% WP</span> + <span class="tech-name">Mancozeb 75% WP</span>
+              <div class="dose-group">
+                <span class="dose-pump">15 g + 30 g / 15L pump</span>
+                <span class="dose-liter">1.0 g + 2.0 g / Liter</span>
+              </div>
+              <span class="brand-examples">(Brand: BASF Acrobat + Indofil M-45)</span>
+              <span class="alt-divider">OR Alternative Option:</span>
+              <span class="tech-name">Fluopicolide + Propamocarb HCl SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">30 ml / 15L pump</span>
+                <span class="dose-liter">2.0 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: Bayer Infinito)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Systemic Antibiotic Bactericide:</span>
-              <span class="tech-name">Kasugamycin 3% SL</span> — <span class="dose">25 ml</span><br>
+              <span class="tech-name">Kasugamycin 3% SL</span>
+              <div class="dose-group">
+                <span class="dose-pump">25 ml / 15L pump</span>
+                <span class="dose-liter">1.66 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: Dhanuka Kasu-B)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Broad-Spectrum Premix Insecticide:</span>
-              <span class="tech-name">Chlorantraniliprole 8.8% + Thiamethoxam 17.5% SC</span> — <span class="dose">15 ml</span><br>
+              <span class="tech-name">Chlorantraniliprole 8.8% + Thiamethoxam 17.5% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15 ml / 15L pump</span>
+                <span class="dose-liter">1.0 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: Syngenta Voliam Flexi)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Deep Leaf Miner & Mite Specialist:</span>
-              <span class="tech-name">Abamectin 1.9% EC</span> — <span class="dose">15 ml</span><br>
-              <span class="brand-examples">(Brand: Crystal Abacin)</span>
+              <span class="tech-name">Abamectin 1.9% EC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15 ml / 15L pump</span>
+                <span class="dose-liter">1.0 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Crystal Abacin)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">5. Spreader / Rainfast Guard:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
@@ -624,37 +807,64 @@
         <!-- DRY CONFIG -->
         <div class="config-dry">
           <span class="weather-badge badge-dry">Dry / Clear Weather Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. Next-Gen SDHI Fungicide:</span>
-              <span class="tech-name">Fluopyram 17.7% + Tebuconazole 17.7% SC</span> — <span class="dose">15 ml</span><br>
-              <span class="brand-examples">(Brand: Bayer Luna Experience)</span><br>
-              <em>OR</em> <span class="tech-name">Fluxapyroxad 75 g/L + Pyraclostrobin 150 g/L EC</span> — <span class="dose">8 to 10 ml</span><br>
+              <span class="tech-name">Fluopyram 17.7% + Tebuconazole 17.7% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15 ml / 15L pump</span>
+                <span class="dose-liter">1.0 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brand: Bayer Luna Experience)</span>
+              <span class="alt-divider">OR Alternative Option:</span>
+              <span class="tech-name">Fluxapyroxad 75 g/L + Pyraclostrobin 150 g/L EC</span>
+              <div class="dose-group">
+                <span class="dose-pump">8–10 ml / 15L pump</span>
+                <span class="dose-liter">0.50–0.66 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: BASF Merivon)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Systemic Antibiotic Bactericide:</span>
-              <span class="tech-name">Kasugamycin 3% SL</span> — <span class="dose">20 ml</span><br>
+              <span class="tech-name">Kasugamycin 3% SL</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 ml / 15L pump</span>
+                <span class="dose-liter">1.33 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: Dhanuka Kasu-B)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Next-Gen IRAC Group 30 Insecticide & Miticide:</span>
-              <span class="tech-name">Isocycloseram 9.2% w/w DC</span> — <span class="dose">15 to 18 ml</span><br>
-              <span class="brand-examples">(Brand: Syngenta Simodis)</span><br>
-              <em>OR</em> <span class="tech-name">Spinetoram 11.7% SC</span> — <span class="dose">15 ml</span> (Delegate) + <span class="tech-name">Broflanilide 300 g/L SC</span> — <span class="dose">3.4 ml</span> (Exponus)
+              <span class="tech-name">Isocycloseram 9.2% w/w DC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15–18 ml / 15L pump</span>
+                <span class="dose-liter">1.0–1.2 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brand: Syngenta Simodis)</span>
+              <span class="alt-divider">OR Alternative Combination Option:</span>
+              <span class="tech-name">Spinetoram 11.7% SC</span> (15 ml) + <span class="tech-name">Broflanilide 300 g/L SC</span> (3.4 ml)
+              <div class="dose-group">
+                <span class="dose-pump">Per 15L pump</span>
+                <span class="dose-liter">1.0 ml + 0.23 ml / Liter</span>
+              </div>
+              <span class="brand-examples">(Brands: Corteva Delegate + BASF Exponus)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Spreader / Penetrant:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
           <div class="target-tags">
             <span class="tag">Export Quality Fruit Finish</span>
-            <span class="tag">Latent Fruit Rot Prevention</span>
+            <span class="tag">Latent Rot Prevention</span>
             <span class="tag highlight">Resistant Black Thrips</span>
-            <span class="tag highlight">Soodi Purugu (Tuta Knockout)</span>
+            <span class="tag highlight">Soodi Purugu (Tuta)</span>
             <span class="tag highlight">Ugu Purugu</span>
             <span class="tag highlight">Nalli (Mites)</span>
             <span class="tag">Whiteflies</span>
@@ -664,33 +874,49 @@
         <!-- RAINY CONFIG -->
         <div class="config-rainy" style="display: none;">
           <span class="weather-badge badge-rainy">Rainy / Heavy Downpour Setup</span>
-          <div class="section-title">Complete Chemical Formula Tank Mix (Per 15L Pump):</div>
+          <div class="section-title">Complete Chemical Formula Tank Mix:</div>
           <ul class="mix-list">
             <li class="mix-item">
               <span class="role-title">1. 30-Minute Rainfast Late Blight Specialist:</span>
-              <span class="tech-name">Oxathiapiprolin 0.7% + Mandipropamid 14% SC</span> — <span class="dose">20 ml</span><br>
+              <span class="tech-name">Oxathiapiprolin 0.7% + Mandipropamid 14% SC</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 ml / 15L pump</span>
+                <span class="dose-liter">1.33 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Syngenta Orondis Opti / Orondis Ultra)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">2. Premium Bactericide & Copper Complex:</span>
-              <span class="tech-name">Copper Hydroxide 53.8% DF</span> — <span class="dose">20 g</span> + <span class="tech-name">Kasugamycin 3% SL</span> — <span class="dose">25 ml</span><br>
+              <span class="tech-name">Copper Hydroxide 53.8% DF</span> + <span class="tech-name">Kasugamycin 3% SL</span>
+              <div class="dose-group">
+                <span class="dose-pump">20 g + 25 ml / 15L pump</span>
+                <span class="dose-liter">1.33 g + 1.66 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brands: Corteva Kocide 2000 + Dhanuka Kasu-B)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">3. Next-Gen IRAC Group 30 Insecticide & Miticide:</span>
-              <span class="tech-name">Isocycloseram 9.2% w/w DC</span> — <span class="dose">15 to 18 ml</span><br>
+              <span class="tech-name">Isocycloseram 9.2% w/w DC</span>
+              <div class="dose-group">
+                <span class="dose-pump">15–18 ml / 15L pump</span>
+                <span class="dose-liter">1.0–1.2 ml / Liter</span>
+              </div>
               <span class="brand-examples">(Brand: Syngenta Simodis)</span>
             </li>
             <li class="mix-item">
               <span class="role-title">4. Spreader / Rainfast Guard:</span>
-              <span class="tech-name">Organosilicone Super-Spreader</span> — <span class="dose">5 ml</span>
+              <span class="tech-name">Organosilicone Super-Spreader</span>
+              <div class="dose-group">
+                <span class="dose-pump">5 ml / 15L pump</span>
+                <span class="dose-liter">0.33 ml / Liter</span>
+              </div>
             </li>
           </ul>
           <div class="section-title">Target Diseases & Pests:</div>
           <div class="target-tags">
             <span class="tag">Extreme Late Blight Eradication</span>
             <span class="tag">Rainfast in 20-30 Mins</span>
-            <span class="tag">Bacterial Spot & Speck Eradication</span>
+            <span class="tag">Bacterial Spot Eradication</span>
             <span class="tag highlight">Resistant Black Thrips</span>
             <span class="tag highlight">Soodi Purugu</span>
             <span class="tag">Full Pest Knockout</span>

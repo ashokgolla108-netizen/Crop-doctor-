@@ -103,26 +103,72 @@
       font-size: 0.9rem;
     }
 
-    .recommend-result {
-      background: #f1f8e9;
-      border: 1px solid #c8e6c9;
+    .search-btn {
+      background-color: var(--primary-light);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 700;
       border-radius: 8px;
-      padding: 18px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 15px auto;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3);
+    }
+
+    .search-btn:hover {
+      background-color: var(--primary);
+    }
+
+    /* Dual Output Grid */
+    .dual-rec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 18px;
       margin-top: 15px;
     }
 
-    .recommend-result h3 {
-      font-size: 1.1rem;
-      color: var(--primary);
-      margin-bottom: 10px;
+    @media (max-width: 580px) {
+      .dual-rec-grid {
+        grid-template-columns: 1fr;
+      }
     }
+
+    .recommend-card {
+      border-radius: 10px;
+      padding: 18px;
+      border: 1px solid var(--border-color);
+    }
+
+    .rec-dry-card {
+      background: #fff8f6;
+      border-left: 5px solid var(--accent-dry);
+    }
+
+    .rec-rainy-card {
+      background: #f0f8ff;
+      border-left: 5px solid var(--accent-rainy);
+    }
+
+    .recommend-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .rec-dry-card h3 { color: var(--accent-dry); }
+    .rec-rainy-card h3 { color: var(--accent-rainy); }
 
     .rec-item {
       padding: 8px 12px;
       background: white;
       border-radius: 6px;
-      margin-bottom: 6px;
-      border-left: 4px solid var(--primary-light);
+      margin-bottom: 8px;
+      border-left: 3px solid var(--border-color);
       font-size: 0.9rem;
     }
 
@@ -408,93 +454,104 @@
   <!-- CUSTOM PEST SEVERITY FILTER ENGINE -->
   <div class="engine-box">
     <div class="engine-title"> Custom Pest & Disease Pressure Selector</div>
-    <p style="font-size: 0.88rem; color: #555; margin-bottom: 15px;">Select current field severity for each target to generate a tailored combined tank mix recommendation:</p>
+    <p style="font-size: 0.88rem; color: #555; margin-bottom: 15px;">Select field pressure levels and click <strong>Generate Recommended Tank Mix</strong> to get tailored mixes for both Dry and Rainy weather:</p>
     
     <div class="filter-grid">
       <div class="filter-group">
         <label for="sel-whitefly">Whiteflies (Tella Doma):</label>
-        <select id="sel-whitefly" onchange="calculateRecommendation()">
+        <select id="sel-whitefly">
           <option value="none">None / Trace</option>
           <option value="low">Low (Preventive)</option>
           <option value="medium">Medium (Active)</option>
           <option value="high" selected>High (Outbreak)</option>
+          <option value="severe">Severe / Extreme (Resistant)</option>
         </select>
       </div>
 
       <div class="filter-group">
         <label for="sel-thrips">Thrips (Tamara Purugulu):</label>
-        <select id="sel-thrips" onchange="calculateRecommendation()">
+        <select id="sel-thrips">
           <option value="none">None / Trace</option>
           <option value="low" selected>Low (Preventive)</option>
           <option value="medium">Medium (Active)</option>
-          <option value="high">High (Resistant Black Thrips)</option>
+          <option value="high">High (Black Thrips)</option>
+          <option value="severe">Severe / Extreme (Resistant)</option>
         </select>
       </div>
 
       <div class="filter-group">
         <label for="sel-mite">Mites (Nalli - Red/Yellow):</label>
-        <select id="sel-mite" onchange="calculateRecommendation()">
+        <select id="sel-mite">
           <option value="none" selected>None / Trace</option>
           <option value="low">Low (Preventive)</option>
           <option value="medium">Medium (Active)</option>
           <option value="high">High (Outbreak)</option>
+          <option value="severe">Severe / Extreme (Resistant)</option>
         </select>
       </div>
 
       <div class="filter-group">
         <label for="sel-miner">Leaf Miner (Ugu Purugu):</label>
-        <select id="sel-miner" onchange="calculateRecommendation()">
+        <select id="sel-miner">
           <option value="none" selected>None / Trace</option>
           <option value="low">Low (Preventive)</option>
           <option value="medium">Medium (Active)</option>
           <option value="high">High (Deep Mining)</option>
+          <option value="severe">Severe / Extreme (Outbreak)</option>
         </select>
       </div>
 
       <div class="filter-group">
         <label for="sel-tuta">Pinworm (Soodi Purugu / Tuta):</label>
-        <select id="sel-tuta" onchange="calculateRecommendation()">
+        <select id="sel-tuta">
           <option value="none" selected>None / Trace</option>
           <option value="low">Low (Preventive)</option>
           <option value="medium">Medium (Active)</option>
           <option value="high">High (Outbreak)</option>
+          <option value="severe">Severe / Extreme (Resistant)</option>
         </select>
       </div>
 
       <div class="filter-group">
         <label for="sel-eblight">Early Blight (Alternaria):</label>
-        <select id="sel-eblight" onchange="calculateRecommendation()">
+        <select id="sel-eblight">
           <option value="none">None / Trace</option>
           <option value="low">Low (Preventive)</option>
-          <option value="medium" selected>Medium (Active Leaf Spots)</option>
-          <option value="high">High (Severe Defoliation)</option>
+          <option value="medium" selected>Medium (Active Spots)</option>
+          <option value="high">High (Severe Leaf Drop)</option>
+          <option value="severe">Severe / Extreme (Fruit Rot)</option>
         </select>
       </div>
 
       <div class="filter-group">
         <label for="sel-lblight">Late Blight (Phytophthora):</label>
-        <select id="sel-lblight" onchange="calculateRecommendation()">
+        <select id="sel-lblight">
           <option value="none" selected>None / Trace</option>
           <option value="low">Low (Preventive)</option>
           <option value="medium">Medium (Active)</option>
-          <option value="high">High (Monsoon Outbreak)</option>
+          <option value="high">High (Outbreak)</option>
+          <option value="severe">Severe / Extreme (Monsoon)</option>
         </select>
       </div>
 
       <div class="filter-group">
         <label for="sel-bact">Bacterial Spot / Speck:</label>
-        <select id="sel-bact" onchange="calculateRecommendation()">
+        <select id="sel-bact">
           <option value="none" selected>None / Trace</option>
           <option value="low">Low (Preventive)</option>
           <option value="medium">Medium (Active)</option>
-          <option value="high">High (Severe Canker)</option>
+          <option value="high">High (Severe Spots)</option>
+          <option value="severe">Severe / Extreme (Canker)</option>
         </select>
       </div>
     </div>
 
-    <!-- Generated Tank Mix Result -->
-    <div class="recommend-result" id="rec-output">
-      <!-- Calculated dynamically by JavaScript -->
+    <!-- Manual Search Button -->
+    <button class="search-btn" onclick="generateRecommendations()">Search & Generate Recommendation</button>
+
+    <!-- Dual Output Results Grid -->
+    <div class="dual-rec-grid" id="rec-output">
+      <!-- Generated dynamically by JS -->
     </div>
   </div>
 
@@ -511,16 +568,16 @@
     </ol>
   </div>
 
-  <!-- Interactive Weather Toggle Bar -->
+  <!-- Interactive Reference Matrix Weather Toggle Bar -->
   <div class="control-bar">
-    <div class="control-title">Select Current Field Weather:</div>
+    <div class="control-title">Reference Matrix View Mode:</div>
     <div class="toggle-group">
-      <button class="toggle-btn active-dry" id="btn-dry" onclick="setWeather('dry')">Dry / Clear Weather</button>
-      <button class="toggle-btn" id="btn-rainy" onclick="setWeather('rainy')">Rainy / Humid Conditions</button>
+      <button class="toggle-btn active-dry" id="btn-dry" onclick="setMatrixWeather('dry')">Dry / Clear Weather</button>
+      <button class="toggle-btn" id="btn-rainy" onclick="setMatrixWeather('rainy')">Rainy / Humid Conditions</button>
     </div>
   </div>
 
-  <!-- Tier Grid -->
+  <!-- Full Reference Tier Grid -->
   <div class="tier-grid">
 
     <!-- LOW TIER -->
@@ -1115,12 +1172,9 @@
 </div>
 
 <script>
-  let currentWeather = 'dry';
-
-  function setWeather(weather) {
-    currentWeather = weather;
-    const dryConfigs = document.querySelectorAll('.config-dry');
-    const rainyConfigs = document.querySelectorAll('.config-rainy');
+  function setMatrixWeather(weather) {
+    const dryConfigs = document.querySelectorAll('.tier-grid .config-dry');
+    const rainyConfigs = document.querySelectorAll('.tier-grid .config-rainy');
     const btnDry = document.getElementById('btn-dry');
     const btnRainy = document.getElementById('btn-rainy');
 
@@ -1135,11 +1189,9 @@
       btnDry.classList.remove('active-dry');
       btnRainy.classList.add('active-rainy');
     }
-
-    calculateRecommendation();
   }
 
-  function calculateRecommendation() {
+  function generateRecommendations() {
     const whitefly = document.getElementById('sel-whitefly').value;
     const thrips = document.getElementById('sel-thrips').value;
     const mite = document.getElementById('sel-mite').value;
@@ -1149,7 +1201,7 @@
     const lblight = document.getElementById('sel-lblight').value;
     const bact = document.getElementById('sel-bact').value;
 
-    const map = { 'none': 0, 'low': 1, 'medium': 2, 'high': 3 };
+    const map = { 'none': 0, 'low': 1, 'medium': 2, 'high': 3, 'severe': 4 };
 
     const maxWhitefly = map[whitefly];
     const maxThrips = map[thrips];
@@ -1160,165 +1212,201 @@
     const maxLBlight = map[lblight];
     const maxBact = map[bact];
 
-    let recItems = [];
-
-    // 1. SUCKING PEST & WHITEFLY SOLUTION
-    if (maxWhitefly === 3) {
-      recItems.push({
-        role: "Whitefly Outbreak Control:",
+    // BUILD DRY TANK MIX
+    let dryItems = [];
+    
+    // 1. Insecticide Sucking
+    if (maxWhitefly >= 3) {
+      dryItems.push({
+        role: "Whitefly Heavy Control:",
         tech: "Diafenthiuron 50% WP",
         dosePump: "20 g / 15L pump",
-        doseLiter: "1.33 g / Liter",
-        brand: "(Brands: Syngenta Polo, Dhanuka Pager, Adama Agas)"
+        doseLiter: "1.33 g / L",
+        brand: "(Brands: Syngenta Polo, Dhanuka Pager)"
       });
     } else if (maxWhitefly === 2) {
-      recItems.push({
+      dryItems.push({
         role: "Active Whitefly Control:",
         tech: "Acetamiprid 20% SP",
         dosePump: "8 g / 15L pump",
-        doseLiter: "0.50 g / Liter",
+        doseLiter: "0.50 g / L",
         brand: "(Brands: Tata Manik, Dhanuka Dhanpreet)"
       });
     } else if (maxWhitefly === 1) {
-      recItems.push({
-        role: "Preventive Sucking Pest Guard:",
+      dryItems.push({
+        role: "Preventive Sucking Guard:",
         tech: "Acetamiprid 20% SP (OR Imidacloprid 17.8% SL)",
-        dosePump: "5 g / 15L pump (7.5 ml for Imida)",
-        doseLiter: "0.35 g / Liter (0.5 ml for Imida)",
+        dosePump: "5 g / 15L pump (7.5 ml Imida)",
+        doseLiter: "0.35 g / L (0.5 ml Imida)",
         brand: "(Brands: Tata Manik / Bayer Confidor)"
       });
     }
 
-    // 2. THRIPS, LEAF MINER & PINWORM SOLUTION
-    const insectTier = Math.max(maxThrips, maxMiner, maxTuta);
-    if (insectTier === 3) {
-      recItems.push({
-        role: "Resistant Black Thrips, Soodi Purugu & Ugu Purugu Knockout:",
+    // 2. Insecticide Borers/Thrips/Miners
+    const maxInsect = Math.max(maxThrips, maxMiner, maxTuta);
+    if (maxInsect >= 3) {
+      dryItems.push({
+        role: "Thrips, Pinworm (Soodi) & Miner (Ugu) Knockout:",
         tech: "Isocycloseram 9.2% w/w DC",
-        dosePump: "15 to 18 ml / 15L pump",
-        doseLiter: "1.0 to 1.2 ml / Liter",
+        dosePump: "15–18 ml / 15L pump",
+        doseLiter: "1.0–1.2 ml / L",
         brand: "(Brand: Syngenta Simodis)"
       });
-    } else if (insectTier === 2) {
-      recItems.push({
+    } else if (maxInsect === 2) {
+      dryItems.push({
         role: "Active Borers, Pinworm & Miner Control:",
         tech: "Chlorantraniliprole 18.5% SC + Abamectin 1.9% EC",
-        dosePump: "6 ml Coragen + 15 ml Abamectin / 15L pump",
-        doseLiter: "0.40 ml + 1.0 ml / Liter",
+        dosePump: "6 ml Coragen + 15 ml Abamectin / 15L",
+        doseLiter: "0.40 ml + 1.0 ml / L",
         brand: "(Brands: FMC Coragen + Crystal Abacin)"
       });
-    } else if (insectTier === 1) {
-      recItems.push({
-        role: "Baseline Thrips, Miner & Pinworm Guard:",
+    } else if (maxInsect === 1) {
+      dryItems.push({
+        role: "Preventive Borers & Thrips Guard:",
         tech: "Fipronil 5% SC + Emamectin Benzoate 5% SG",
-        dosePump: "30 ml Fipronil + 10 g Emamectin / 15L pump",
-        doseLiter: "2.0 ml + 0.65 g / Liter",
+        dosePump: "30 ml Fipronil + 10 g Emamectin / 15L",
+        doseLiter: "2.0 ml + 0.65 g / L",
         brand: "(Brands: Bayer Regent + Syngenta Proclaim)"
       });
     }
 
-    // 3. MITE SPECIALIST SOLUTION (If specifically high/medium)
-    if (maxMite >= 2 && maxWhitefly < 3 && insectTier < 3) {
-      recItems.push({
+    // 3. Mites (If high & not already covered by Simodis)
+    if (maxMite >= 2 && maxWhitefly < 3 && maxInsect < 3) {
+      dryItems.push({
         role: "Mite Specialist Guard:",
         tech: "Abamectin 1.9% EC",
         dosePump: "15 ml / 15L pump",
-        doseLiter: "1.0 ml / Liter",
+        doseLiter: "1.0 ml / L",
         brand: "(Brands: Crystal Abacin, Verma Abamectin)"
       });
     }
 
-    // 4. FUNGICIDE & BACTERICIDE SOLUTION
-    if (currentWeather === 'dry') {
-      const dryDiseaseTier = Math.max(maxEBlight, maxLBlight);
-      if (dryDiseaseTier === 3) {
-        recItems.push({
-          role: "Severe Early Blight & Fruit Finish (Dry):",
-          tech: "Fluopyram 17.7% + Tebuconazole 17.7% SC",
-          dosePump: "15 ml / 15L pump",
-          doseLiter: "1.0 ml / Liter",
-          brand: "(Brand: Bayer Luna Experience)"
-        });
-      } else if (dryDiseaseTier === 2) {
-        recItems.push({
-          role: "Active Early Blight & Leaf Spot Control (Dry):",
-          tech: "Azoxystrobin 18.2% + Difenoconazole 11.4% SC",
-          dosePump: "15 ml / 15L pump",
-          doseLiter: "1.0 ml / Liter",
-          brand: "(Brands: Syngenta Amistar Top / Adama Mirador Duo)"
-        });
-      } else if (dryDiseaseTier === 1) {
-        recItems.push({
-          role: "Baseline Preventive Fungicide (Dry):",
-          tech: "Mancozeb 75% WP",
-          dosePump: "30 to 40 g / 15L pump",
-          doseLiter: "2.0 to 2.5 g / Liter",
-          brand: "(Brands: Indofil M-45, UPL Dithane M-45)"
-        });
-      }
-    } else {
-      // RAINY / HUMID
-      const rainyDiseaseTier = Math.max(maxLBlight, maxEBlight);
-      if (rainyDiseaseTier === 3) {
-        recItems.push({
-          role: "Extreme Rainfast Late Blight Eradication (Rainy):",
-          tech: "Oxathiapiprolin 0.7% + Mandipropamid 14% SC",
-          dosePump: "20 ml / 15L pump",
-          doseLiter: "1.33 ml / Liter",
-          brand: "(Brands: Syngenta Orondis Opti / Orondis Ultra)"
-        });
-      } else if (rainyDiseaseTier === 2) {
-        recItems.push({
-          role: "Active Late Blight Curative Control (Rainy):",
-          tech: "Cymoxanil 8% + Mancozeb 64% WP",
-          dosePump: "30 g / 15L pump",
-          doseLiter: "2.0 g / Liter",
-          brand: "(Brands: Corteva Curzate, Crystal Profilux)"
-        });
-      } else if (rainyDiseaseTier === 1) {
-        recItems.push({
-          role: "Baseline Late Blight Preventive (Rainy):",
-          tech: "Copper Oxychloride 50% WP (COC)",
-          dosePump: "30 g / 15L pump",
-          doseLiter: "2.0 g / Liter",
-          brand: "(Brands: Tata Blitox, Dhanuka Dhanucop)"
-        });
-      }
+    // 4. Fungicide Dry
+    const maxDryDisease = Math.max(maxEBlight, maxLBlight);
+    if (maxDryDisease >= 4) {
+      dryItems.push({
+        role: "Extreme Disease & Export Finish Guard (Dry):",
+        tech: "Fluopyram 17.7% + Tebuconazole 17.7% SC",
+        dosePump: "15 ml / 15L pump",
+        doseLiter: "1.0 ml / L",
+        brand: "(Brand: Bayer Luna Experience)"
+      });
+    } else if (maxDryDisease === 3) {
+      dryItems.push({
+        role: "Severe Early Blight Curative (Dry):",
+        tech: "Azoxystrobin 11% + Tebuconazole 18.3% SC",
+        dosePump: "20 ml / 15L pump",
+        doseLiter: "1.33 ml / L",
+        brand: "(Brand: Adama Custodia)"
+      });
+    } else if (maxDryDisease === 2) {
+      dryItems.push({
+        role: "Active Early Blight & Leaf Spot Control (Dry):",
+        tech: "Azoxystrobin 18.2% + Difenoconazole 11.4% SC",
+        dosePump: "15 ml / 15L pump",
+        doseLiter: "1.0 ml / L",
+        brand: "(Brands: Syngenta Amistar Top / Adama Mirador Duo)"
+      });
+    } else if (maxDryDisease === 1) {
+      dryItems.push({
+        role: "Baseline Preventive Fungicide (Dry):",
+        tech: "Mancozeb 75% WP",
+        dosePump: "30 to 40 g / 15L pump",
+        doseLiter: "2.0 to 2.5 g / L",
+        brand: "(Brands: Indofil M-45, UPL Dithane M-45)"
+      });
     }
 
-    // 5. BACTERICIDE ADD-ON
-    if (maxBact >= 2) {
-      recItems.push({
+    // 5. Bactericide Dry
+    if (maxBact >= 3) {
+      dryItems.push({
         role: "Systemic Bacterial Spot & Speck Control:",
         tech: "Kasugamycin 3% SL",
         dosePump: "20 to 25 ml / 15L pump",
-        doseLiter: "1.33 to 1.66 ml / Liter",
+        doseLiter: "1.33 to 1.66 ml / L",
         brand: "(Brands: Dhanuka Kasu-B, Biostadt Kasugacel)"
       });
-    } else if (maxBact === 1 || (currentWeather === 'rainy' && maxBact === 0)) {
-      recItems.push({
+    } else if (maxBact >= 1) {
+      dryItems.push({
         role: "Bacterial Spot Preventive Guard:",
         tech: "Streptomycin Sulphate + Tetracycline HCl",
         dosePump: "1.5 to 2 g / 15L pump",
-        doseLiter: "0.10 to 0.13 g / Liter",
+        doseLiter: "0.10 to 0.13 g / L",
         brand: "(Brands: Aries Plantomycin, HA Streptocycline)"
       });
     }
 
-    // 6. SPREADER (Mandatory)
-    recItems.push({
+    dryItems.push({
       role: "Spreader / Penetrant:",
       tech: "Organosilicone Super-Spreader",
       dosePump: "5 ml / 15L pump",
-      doseLiter: "0.33 ml / Liter",
-      brand: "(Add directly to spray tank last)"
+      doseLiter: "0.33 ml / L",
+      brand: "(Add directly to spray pump last)"
     });
 
-    // RENDER OUTPUT
-    const outputDiv = document.getElementById('rec-output');
-    let html = `<h3>Recommended Combined Tank Mix Pass (${currentWeather === 'dry' ? 'Dry / Clear Weather' : 'Rainy / Humid Conditions'}):</h3>`;
-    
-    recItems.forEach(item => {
+    // BUILD RAINY TANK MIX
+    let rainyItems = [];
+
+    // Copy Insecticide logic to rainy pass
+    dryItems.forEach(item => {
+      if (!item.role.includes("Dry") && !item.role.includes("Fungicide")) {
+        rainyItems.push(item);
+      }
+    });
+
+    // Fungicide Rainy
+    const maxRainyDisease = Math.max(maxLBlight, maxEBlight);
+    if (maxRainyDisease >= 4) {
+      rainyItems.splice(rainyItems.length - 1, 0, {
+        role: "30-Min Rainfast Late Blight Eradication (Rainy):",
+        tech: "Oxathiapiprolin 0.7% + Mandipropamid 14% SC",
+        dosePump: "20 ml / 15L pump",
+        doseLiter: "1.33 ml / L",
+        brand: "(Brands: Syngenta Orondis Opti / Orondis Ultra)"
+      });
+    } else if (maxRainyDisease === 3) {
+      rainyItems.splice(rainyItems.length - 1, 0, {
+        role: "Severe Late Blight Cell-Rupturing Knockdown (Rainy):",
+        tech: "Dimethomorph 50% WP + Mancozeb 75% WP",
+        dosePump: "15 g + 30 g / 15L pump",
+        doseLiter: "1.0 g + 2.0 g / L",
+        brand: "(Brands: BASF Acrobat + Indofil M-45)"
+      });
+    } else if (maxRainyDisease === 2) {
+      rainyItems.splice(rainyItems.length - 1, 0, {
+        role: "Active Late Blight Curative Control (Rainy):",
+        tech: "Cymoxanil 8% + Mancozeb 64% WP",
+        dosePump: "30 g / 15L pump",
+        doseLiter: "2.0 g / L",
+        brand: "(Brands: Corteva Curzate, Crystal Profilux)"
+      });
+    } else {
+      rainyItems.splice(rainyItems.length - 1, 0, {
+        role: "Baseline Copper & Late Blight Guard (Rainy):",
+        tech: "Copper Oxychloride 50% WP (COC)",
+        dosePump: "30 g / 15L pump",
+        doseLiter: "2.0 g / L",
+        brand: "(Brands: Tata Blitox, Dhanuka Dhanucop)"
+      });
+    }
+
+    // Bactericide Rainy Addition
+    if (maxBact >= 3) {
+      rainyItems.splice(rainyItems.length - 1, 0, {
+        role: "Bacterial Spot & Speck Specialist:",
+        tech: "Copper Hydroxide 53.8% DF + Kasugamycin 3% SL",
+        dosePump: "20 g + 25 ml / 15L pump",
+        doseLiter: "1.33 g + 1.66 ml / L",
+        brand: "(Brands: Corteva Kocide 2000 + Dhanuka Kasu-B)"
+      });
+    }
+
+    // RENDER DUAL CARDS OUTPUT
+    let html = `
+      <div class="recommend-card rec-dry-card">
+        <h3> Recommended Dry / Clear Weather Pass</h3>
+    `;
+    dryItems.forEach(item => {
       html += `
         <div class="rec-item">
           <span class="rec-role">${item.role}</span><br>
@@ -1329,13 +1417,31 @@
         </div>
       `;
     });
+    html += `</div>`;
 
-    outputDiv.innerHTML = html;
+    html += `
+      <div class="recommend-card rec-rainy-card">
+        <h3> Recommended Rainy / Humid / Downpour Pass</h3>
+    `;
+    rainyItems.forEach(item => {
+      html += `
+        <div class="rec-item">
+          <span class="rec-role">${item.role}</span><br>
+          <span class="rec-tech">${item.tech}</span> — 
+          <span class="dose-pump">${item.dosePump}</span> 
+          <span class="dose-liter">${item.doseLiter}</span><br>
+          <span class="rec-brand">${item.brand}</span>
+        </div>
+      `;
+    });
+    html += `</div>`;
+
+    document.getElementById('rec-output').innerHTML = html;
   }
 
-  // Initialize on load
+  // Initialize recommendation on initial page load
   window.onload = function() {
-    calculateRecommendation();
+    generateRecommendations();
   };
 </script>
 

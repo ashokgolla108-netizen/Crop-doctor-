@@ -115,7 +115,7 @@
       transition: background-color 0.2s ease;
       display: block;
       width: 100%;
-      max-width: 300px;
+      max-width: 320px;
       margin: 0 auto 15px auto;
       text-align: center;
       box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3);
@@ -454,9 +454,20 @@
   <!-- CUSTOM PEST SEVERITY FILTER ENGINE -->
   <div class="engine-box">
     <div class="engine-title"> Custom Pest & Disease Pressure Selector</div>
-    <p style="font-size: 0.88rem; color: #555; margin-bottom: 15px;">Select field pressure levels and click <strong>Generate Recommended Tank Mix</strong> to get tailored mixes for both Dry and Rainy weather:</p>
+    <p style="font-size: 0.88rem; color: #555; margin-bottom: 15px;">Select field pressure levels and click <strong>Search & Generate Recommendation</strong> to get tailored mixes for both Dry and Rainy weather:</p>
     
     <div class="filter-grid">
+      <div class="filter-group">
+        <label for="sel-aphid">Aphids & Jassids (Penu/Paccha):</label>
+        <select id="sel-aphid">
+          <option value="none">None / Trace</option>
+          <option value="low" selected>Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high">High (Outbreak)</option>
+          <option value="severe">Severe / Extreme (Resistant)</option>
+        </select>
+      </div>
+
       <div class="filter-group">
         <label for="sel-whitefly">Whiteflies (Tella Doma):</label>
         <select id="sel-whitefly">
@@ -610,7 +621,7 @@
               <span class="brand-examples">(Brands: Tata Sultaf, Dhanuka Sulvit)</span>
             </li>
             <li class="mix-item">
-              <span class="role-title">2. Systemic Sucking Insecticide:</span>
+              <span class="role-title">2. Systemic Sucking Insecticide (Aphids, Jassids, Whiteflies):</span>
               <span class="tech-name">Acetamiprid 20% SP</span>
               <div class="dose-group">
                 <span class="dose-pump">5–8 g / 15L pump</span>
@@ -657,8 +668,8 @@
             <span class="tag">Early Blight</span>
             <span class="tag">Leaf Spots</span>
             <span class="tag">Powdery Mildew</span>
-            <span class="tag">Whiteflies</span>
             <span class="tag">Aphids / Jassids</span>
+            <span class="tag">Whiteflies</span>
             <span class="tag">Thrips</span>
             <span class="tag highlight">Ugu Purugu (Leaf Miner)</span>
             <span class="tag highlight">Soodi Purugu (Tuta)</span>
@@ -690,7 +701,7 @@
               <span class="brand-examples">(Brands: Aries Plantomycin, Hindustan Antibiotics Streptocycline)</span>
             </li>
             <li class="mix-item">
-              <span class="role-title">3. Systemic Sucking Insecticide:</span>
+              <span class="role-title">3. Systemic Sucking Insecticide (Aphids, Jassids, Whiteflies):</span>
               <span class="tech-name">Acetamiprid 20% SP</span>
               <div class="dose-group">
                 <span class="dose-pump">5–8 g / 15L pump</span>
@@ -737,6 +748,7 @@
             <span class="tag">Late Blight Prevention</span>
             <span class="tag">Bacterial Spot & Speck</span>
             <span class="tag">Stem Rot</span>
+            <span class="tag">Aphids / Jassids</span>
             <span class="tag highlight">Ugu Purugu</span>
             <span class="tag highlight">Soodi Purugu</span>
             <span class="tag">Sucking Pests & Borers</span>
@@ -776,7 +788,7 @@
               <span class="brand-examples">(Brand: Bayer Nativo)</span>
             </li>
             <li class="mix-item">
-              <span class="role-title">2. Mite & Whitefly Specialist:</span>
+              <span class="role-title">2. Mite, Aphid & Whitefly Specialist:</span>
               <span class="tech-name">Diafenthiuron 50% WP</span>
               <div class="dose-group">
                 <span class="dose-pump">20 g / 15L pump</span>
@@ -815,6 +827,7 @@
             <span class="tag">Powdery Mildew</span>
             <span class="tag">Fruit Rot / Anthracnose</span>
             <span class="tag highlight">Nalli (Mites)</span>
+            <span class="tag">Aphids / Jassids</span>
             <span class="tag">Whiteflies</span>
             <span class="tag highlight">Soodi Purugu</span>
             <span class="tag">Fruit Borers</span>
@@ -845,7 +858,7 @@
               <span class="brand-examples">(Brands: Corteva Kocide 2000 + Aries Plantomycin)</span>
             </li>
             <li class="mix-item">
-              <span class="role-title">3. Mite & Whitefly Specialist:</span>
+              <span class="role-title">3. Mite, Aphid & Whitefly Specialist:</span>
               <span class="tech-name">Diafenthiuron 50% WP</span>
               <div class="dose-group">
                 <span class="dose-pump">20 g / 15L pump</span>
@@ -877,6 +890,7 @@
             <span class="tag">Bacterial Spot & Speck</span>
             <span class="tag">Downy Mildew</span>
             <span class="tag highlight">Nalli (Mites)</span>
+            <span class="tag">Aphids / Jassids</span>
             <span class="tag">Whiteflies</span>
             <span class="tag highlight">Soodi Purugu</span>
           </div>
@@ -917,7 +931,7 @@
               <span class="brand-examples">(Brands: Dhanuka Kasu-B, Biostadt Kasugacel)</span>
             </li>
             <li class="mix-item">
-              <span class="role-title">3. Broad-Spectrum Premix Insecticide:</span>
+              <span class="role-title">3. Broad-Spectrum Premix Insecticide (Aphids, Jassids, Borers, Whiteflies):</span>
               <span class="tech-name">Chlorantraniliprole 8.8% + Thiamethoxam 17.5% SC</span>
               <div class="dose-group">
                 <span class="dose-pump">15 ml / 15L pump</span>
@@ -957,6 +971,7 @@
             <span class="tag">Fruit Rot</span>
             <span class="tag highlight">Ugu Purugu (Deep Miner)</span>
             <span class="tag highlight">Soodi Purugu</span>
+            <span class="tag">Aphids / Jassids</span>
             <span class="tag">Thrips & Whiteflies</span>
             <span class="tag highlight">Nalli (Mites)</span>
           </div>
@@ -1023,6 +1038,7 @@
           <div class="target-tags">
             <span class="tag">Severe Late Blight Outbreak</span>
             <span class="tag">Systemic Bacterial Spot & Speck</span>
+            <span class="tag">Aphids / Jassids</span>
             <span class="tag highlight">Ugu Purugu</span>
             <span class="tag highlight">Soodi Purugu</span>
             <span class="tag">Thrips & Whiteflies</span>
@@ -1104,6 +1120,7 @@
             <span class="tag highlight">Soodi Purugu (Tuta)</span>
             <span class="tag highlight">Ugu Purugu</span>
             <span class="tag highlight">Nalli (Mites)</span>
+            <span class="tag">Aphids / Jassids</span>
             <span class="tag">Whiteflies</span>
           </div>
         </div>
@@ -1156,6 +1173,7 @@
             <span class="tag">Bacterial Spot Eradication</span>
             <span class="tag highlight">Resistant Black Thrips</span>
             <span class="tag highlight">Soodi Purugu</span>
+            <span class="tag">Aphids / Jassids</span>
             <span class="tag">Full Pest Knockout</span>
           </div>
         </div>
@@ -1192,6 +1210,7 @@
   }
 
   function generateRecommendations() {
+    const aphid = document.getElementById('sel-aphid').value;
     const whitefly = document.getElementById('sel-whitefly').value;
     const thrips = document.getElementById('sel-thrips').value;
     const mite = document.getElementById('sel-mite').value;
@@ -1203,6 +1222,7 @@
 
     const map = { 'none': 0, 'low': 1, 'medium': 2, 'high': 3, 'severe': 4 };
 
+    const maxAphid = map[aphid];
     const maxWhitefly = map[whitefly];
     const maxThrips = map[thrips];
     const maxMite = map[mite];
@@ -1215,26 +1235,27 @@
     // BUILD DRY TANK MIX
     let dryItems = [];
     
-    // 1. Insecticide Sucking
-    if (maxWhitefly >= 3) {
+    // 1. Insecticide Sucking (Aphids, Jassids & Whiteflies)
+    const maxSucking = Math.max(maxAphid, maxWhitefly);
+    if (maxSucking >= 4 || maxWhitefly >= 3 || maxAphid >= 3) {
       dryItems.push({
-        role: "Whitefly Heavy Control:",
-        tech: "Diafenthiuron 50% WP",
+        role: "Aphid, Jassid & Whitefly Outbreak Control:",
+        tech: "Diafenthiuron 50% WP (OR Voliam Flexi if high borer too)",
         dosePump: "20 g / 15L pump",
         doseLiter: "1.33 g / L",
-        brand: "(Brands: Syngenta Polo, Dhanuka Pager)"
+        brand: "(Brands: Syngenta Polo, Dhanuka Pager, Voliam Flexi)"
       });
-    } else if (maxWhitefly === 2) {
+    } else if (maxSucking === 2) {
       dryItems.push({
-        role: "Active Whitefly Control:",
+        role: "Active Aphid, Jassid & Whitefly Control:",
         tech: "Acetamiprid 20% SP",
         dosePump: "8 g / 15L pump",
         doseLiter: "0.50 g / L",
         brand: "(Brands: Tata Manik, Dhanuka Dhanpreet)"
       });
-    } else if (maxWhitefly === 1) {
+    } else if (maxSucking === 1) {
       dryItems.push({
-        role: "Preventive Sucking Guard:",
+        role: "Preventive Aphid, Jassid & Whitefly Guard:",
         tech: "Acetamiprid 20% SP (OR Imidacloprid 17.8% SL)",
         dosePump: "5 g / 15L pump (7.5 ml Imida)",
         doseLiter: "0.35 g / L (0.5 ml Imida)",
@@ -1242,11 +1263,11 @@
       });
     }
 
-    // 2. Insecticide Borers/Thrips/Miners
+    // 2. Insecticide Borers/Thrips/Miners/Tuta
     const maxInsect = Math.max(maxThrips, maxMiner, maxTuta);
-    if (maxInsect >= 3) {
+    if (maxInsect >= 4 || maxThrip >= 3 || maxTuta >= 3) {
       dryItems.push({
-        role: "Thrips, Pinworm (Soodi) & Miner (Ugu) Knockout:",
+        role: "Resistant Thrips, Soodi Purugu & Ugu Purugu Knockout:",
         tech: "Isocycloseram 9.2% w/w DC",
         dosePump: "15–18 ml / 15L pump",
         doseLiter: "1.0–1.2 ml / L",
@@ -1270,8 +1291,8 @@
       });
     }
 
-    // 3. Mites (If high & not already covered by Simodis)
-    if (maxMite >= 2 && maxWhitefly < 3 && maxInsect < 3) {
+    // 3. Mites (If high & not covered)
+    if (maxMite >= 2 && maxSucking < 3 && maxInsect < 3) {
       dryItems.push({
         role: "Mite Specialist Guard:",
         tech: "Abamectin 1.9% EC",
@@ -1346,8 +1367,6 @@
 
     // BUILD RAINY TANK MIX
     let rainyItems = [];
-
-    // Copy Insecticide logic to rainy pass
     dryItems.forEach(item => {
       if (!item.role.includes("Dry") && !item.role.includes("Fungicide")) {
         rainyItems.push(item);
@@ -1390,7 +1409,6 @@
       });
     }
 
-    // Bactericide Rainy Addition
     if (maxBact >= 3) {
       rainyItems.splice(rainyItems.length - 1, 0, {
         role: "Bacterial Spot & Speck Specialist:",
@@ -1439,7 +1457,6 @@
     document.getElementById('rec-output').innerHTML = html;
   }
 
-  // Initialize recommendation on initial page load
   window.onload = function() {
     generateRecommendations();
   };

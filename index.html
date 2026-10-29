@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tomato Crop Protection & Chemical Formula Matrix (Per Pump & Per Liter)</title>
+  <title>Smart Tomato Protection Engine & Chemical Matrix</title>
   <style>
     :root {
       --primary: #1b5e20;
@@ -32,7 +32,7 @@
     }
 
     .container {
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
     }
 
@@ -53,6 +53,93 @@
     header p {
       font-size: 0.95rem;
       opacity: 0.92;
+    }
+
+    /* Custom Recommendation Engine Box */
+    .engine-box {
+      background: var(--card-bg);
+      border: 2px solid var(--primary-light);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .engine-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .filter-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .filter-group select {
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      background-color: #fafafa;
+      font-size: 0.9rem;
+    }
+
+    .recommend-result {
+      background: #f1f8e9;
+      border: 1px solid #c8e6c9;
+      border-radius: 8px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .recommend-result h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .rec-item {
+      padding: 8px 12px;
+      background: white;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      border-left: 4px solid var(--primary-light);
+      font-size: 0.9rem;
+    }
+
+    .rec-item .rec-role {
+      font-weight: 800;
+      color: #111;
+    }
+
+    .rec-item .rec-tech {
+      color: #0d47a1;
+      font-weight: 700;
+    }
+
+    .rec-item .rec-brand {
+      color: #616161;
+      font-size: 0.82rem;
+      font-style: italic;
     }
 
     /* Protocol Box */
@@ -315,8 +402,101 @@
 
   <header>
     <h1>Tomato Crop Protection & Chemical Matrix</h1>
-    <p>Complete Tier-Based Reference Guide with Technical Formulas, Alternatives, Brand Examples & Doses (Per 15L Pump & Per Liter)</p>
+    <p>Custom Pest Severity Selector & Comprehensive Tier Reference Matrix (Per Pump & Per Liter)</p>
   </header>
+
+  <!-- CUSTOM PEST SEVERITY FILTER ENGINE -->
+  <div class="engine-box">
+    <div class="engine-title"> Custom Pest & Disease Pressure Selector</div>
+    <p style="font-size: 0.88rem; color: #555; margin-bottom: 15px;">Select current field severity for each target to generate a tailored combined tank mix recommendation:</p>
+    
+    <div class="filter-grid">
+      <div class="filter-group">
+        <label for="sel-whitefly">Whiteflies (Tella Doma):</label>
+        <select id="sel-whitefly" onchange="calculateRecommendation()">
+          <option value="none">None / Trace</option>
+          <option value="low">Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high" selected>High (Outbreak)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sel-thrips">Thrips (Tamara Purugulu):</label>
+        <select id="sel-thrips" onchange="calculateRecommendation()">
+          <option value="none">None / Trace</option>
+          <option value="low" selected>Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high">High (Resistant Black Thrips)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sel-mite">Mites (Nalli - Red/Yellow):</label>
+        <select id="sel-mite" onchange="calculateRecommendation()">
+          <option value="none" selected>None / Trace</option>
+          <option value="low">Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high">High (Outbreak)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sel-miner">Leaf Miner (Ugu Purugu):</label>
+        <select id="sel-miner" onchange="calculateRecommendation()">
+          <option value="none" selected>None / Trace</option>
+          <option value="low">Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high">High (Deep Mining)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sel-tuta">Pinworm (Soodi Purugu / Tuta):</label>
+        <select id="sel-tuta" onchange="calculateRecommendation()">
+          <option value="none" selected>None / Trace</option>
+          <option value="low">Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high">High (Outbreak)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sel-eblight">Early Blight (Alternaria):</label>
+        <select id="sel-eblight" onchange="calculateRecommendation()">
+          <option value="none">None / Trace</option>
+          <option value="low">Low (Preventive)</option>
+          <option value="medium" selected>Medium (Active Leaf Spots)</option>
+          <option value="high">High (Severe Defoliation)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sel-lblight">Late Blight (Phytophthora):</label>
+        <select id="sel-lblight" onchange="calculateRecommendation()">
+          <option value="none" selected>None / Trace</option>
+          <option value="low">Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high">High (Monsoon Outbreak)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="sel-bact">Bacterial Spot / Speck:</label>
+        <select id="sel-bact" onchange="calculateRecommendation()">
+          <option value="none" selected>None / Trace</option>
+          <option value="low">Low (Preventive)</option>
+          <option value="medium">Medium (Active)</option>
+          <option value="high">High (Severe Canker)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Generated Tank Mix Result -->
+    <div class="recommend-result" id="rec-output">
+      <!-- Calculated dynamically by JavaScript -->
+    </div>
+  </div>
 
   <!-- Gold Standard Tank Mixing Protocol -->
   <div class="protocol-box">
@@ -935,7 +1115,10 @@
 </div>
 
 <script>
+  let currentWeather = 'dry';
+
   function setWeather(weather) {
+    currentWeather = weather;
     const dryConfigs = document.querySelectorAll('.config-dry');
     const rainyConfigs = document.querySelectorAll('.config-rainy');
     const btnDry = document.getElementById('btn-dry');
@@ -952,7 +1135,208 @@
       btnDry.classList.remove('active-dry');
       btnRainy.classList.add('active-rainy');
     }
+
+    calculateRecommendation();
   }
+
+  function calculateRecommendation() {
+    const whitefly = document.getElementById('sel-whitefly').value;
+    const thrips = document.getElementById('sel-thrips').value;
+    const mite = document.getElementById('sel-mite').value;
+    const miner = document.getElementById('sel-miner').value;
+    const tuta = document.getElementById('sel-tuta').value;
+    const eblight = document.getElementById('sel-eblight').value;
+    const lblight = document.getElementById('sel-lblight').value;
+    const bact = document.getElementById('sel-bact').value;
+
+    const map = { 'none': 0, 'low': 1, 'medium': 2, 'high': 3 };
+
+    const maxWhitefly = map[whitefly];
+    const maxThrips = map[thrips];
+    const maxMite = map[mite];
+    const maxMiner = map[miner];
+    const maxTuta = map[tuta];
+    const maxEBlight = map[eblight];
+    const maxLBlight = map[lblight];
+    const maxBact = map[bact];
+
+    let recItems = [];
+
+    // 1. SUCKING PEST & WHITEFLY SOLUTION
+    if (maxWhitefly === 3) {
+      recItems.push({
+        role: "Whitefly Outbreak Control:",
+        tech: "Diafenthiuron 50% WP",
+        dosePump: "20 g / 15L pump",
+        doseLiter: "1.33 g / Liter",
+        brand: "(Brands: Syngenta Polo, Dhanuka Pager, Adama Agas)"
+      });
+    } else if (maxWhitefly === 2) {
+      recItems.push({
+        role: "Active Whitefly Control:",
+        tech: "Acetamiprid 20% SP",
+        dosePump: "8 g / 15L pump",
+        doseLiter: "0.50 g / Liter",
+        brand: "(Brands: Tata Manik, Dhanuka Dhanpreet)"
+      });
+    } else if (maxWhitefly === 1) {
+      recItems.push({
+        role: "Preventive Sucking Pest Guard:",
+        tech: "Acetamiprid 20% SP (OR Imidacloprid 17.8% SL)",
+        dosePump: "5 g / 15L pump (7.5 ml for Imida)",
+        doseLiter: "0.35 g / Liter (0.5 ml for Imida)",
+        brand: "(Brands: Tata Manik / Bayer Confidor)"
+      });
+    }
+
+    // 2. THRIPS, LEAF MINER & PINWORM SOLUTION
+    const insectTier = Math.max(maxThrips, maxMiner, maxTuta);
+    if (insectTier === 3) {
+      recItems.push({
+        role: "Resistant Black Thrips, Soodi Purugu & Ugu Purugu Knockout:",
+        tech: "Isocycloseram 9.2% w/w DC",
+        dosePump: "15 to 18 ml / 15L pump",
+        doseLiter: "1.0 to 1.2 ml / Liter",
+        brand: "(Brand: Syngenta Simodis)"
+      });
+    } else if (insectTier === 2) {
+      recItems.push({
+        role: "Active Borers, Pinworm & Miner Control:",
+        tech: "Chlorantraniliprole 18.5% SC + Abamectin 1.9% EC",
+        dosePump: "6 ml Coragen + 15 ml Abamectin / 15L pump",
+        doseLiter: "0.40 ml + 1.0 ml / Liter",
+        brand: "(Brands: FMC Coragen + Crystal Abacin)"
+      });
+    } else if (insectTier === 1) {
+      recItems.push({
+        role: "Baseline Thrips, Miner & Pinworm Guard:",
+        tech: "Fipronil 5% SC + Emamectin Benzoate 5% SG",
+        dosePump: "30 ml Fipronil + 10 g Emamectin / 15L pump",
+        doseLiter: "2.0 ml + 0.65 g / Liter",
+        brand: "(Brands: Bayer Regent + Syngenta Proclaim)"
+      });
+    }
+
+    // 3. MITE SPECIALIST SOLUTION (If specifically high/medium)
+    if (maxMite >= 2 && maxWhitefly < 3 && insectTier < 3) {
+      recItems.push({
+        role: "Mite Specialist Guard:",
+        tech: "Abamectin 1.9% EC",
+        dosePump: "15 ml / 15L pump",
+        doseLiter: "1.0 ml / Liter",
+        brand: "(Brands: Crystal Abacin, Verma Abamectin)"
+      });
+    }
+
+    // 4. FUNGICIDE & BACTERICIDE SOLUTION
+    if (currentWeather === 'dry') {
+      const dryDiseaseTier = Math.max(maxEBlight, maxLBlight);
+      if (dryDiseaseTier === 3) {
+        recItems.push({
+          role: "Severe Early Blight & Fruit Finish (Dry):",
+          tech: "Fluopyram 17.7% + Tebuconazole 17.7% SC",
+          dosePump: "15 ml / 15L pump",
+          doseLiter: "1.0 ml / Liter",
+          brand: "(Brand: Bayer Luna Experience)"
+        });
+      } else if (dryDiseaseTier === 2) {
+        recItems.push({
+          role: "Active Early Blight & Leaf Spot Control (Dry):",
+          tech: "Azoxystrobin 18.2% + Difenoconazole 11.4% SC",
+          dosePump: "15 ml / 15L pump",
+          doseLiter: "1.0 ml / Liter",
+          brand: "(Brands: Syngenta Amistar Top / Adama Mirador Duo)"
+        });
+      } else if (dryDiseaseTier === 1) {
+        recItems.push({
+          role: "Baseline Preventive Fungicide (Dry):",
+          tech: "Mancozeb 75% WP",
+          dosePump: "30 to 40 g / 15L pump",
+          doseLiter: "2.0 to 2.5 g / Liter",
+          brand: "(Brands: Indofil M-45, UPL Dithane M-45)"
+        });
+      }
+    } else {
+      // RAINY / HUMID
+      const rainyDiseaseTier = Math.max(maxLBlight, maxEBlight);
+      if (rainyDiseaseTier === 3) {
+        recItems.push({
+          role: "Extreme Rainfast Late Blight Eradication (Rainy):",
+          tech: "Oxathiapiprolin 0.7% + Mandipropamid 14% SC",
+          dosePump: "20 ml / 15L pump",
+          doseLiter: "1.33 ml / Liter",
+          brand: "(Brands: Syngenta Orondis Opti / Orondis Ultra)"
+        });
+      } else if (rainyDiseaseTier === 2) {
+        recItems.push({
+          role: "Active Late Blight Curative Control (Rainy):",
+          tech: "Cymoxanil 8% + Mancozeb 64% WP",
+          dosePump: "30 g / 15L pump",
+          doseLiter: "2.0 g / Liter",
+          brand: "(Brands: Corteva Curzate, Crystal Profilux)"
+        });
+      } else if (rainyDiseaseTier === 1) {
+        recItems.push({
+          role: "Baseline Late Blight Preventive (Rainy):",
+          tech: "Copper Oxychloride 50% WP (COC)",
+          dosePump: "30 g / 15L pump",
+          doseLiter: "2.0 g / Liter",
+          brand: "(Brands: Tata Blitox, Dhanuka Dhanucop)"
+        });
+      }
+    }
+
+    // 5. BACTERICIDE ADD-ON
+    if (maxBact >= 2) {
+      recItems.push({
+        role: "Systemic Bacterial Spot & Speck Control:",
+        tech: "Kasugamycin 3% SL",
+        dosePump: "20 to 25 ml / 15L pump",
+        doseLiter: "1.33 to 1.66 ml / Liter",
+        brand: "(Brands: Dhanuka Kasu-B, Biostadt Kasugacel)"
+      });
+    } else if (maxBact === 1 || (currentWeather === 'rainy' && maxBact === 0)) {
+      recItems.push({
+        role: "Bacterial Spot Preventive Guard:",
+        tech: "Streptomycin Sulphate + Tetracycline HCl",
+        dosePump: "1.5 to 2 g / 15L pump",
+        doseLiter: "0.10 to 0.13 g / Liter",
+        brand: "(Brands: Aries Plantomycin, HA Streptocycline)"
+      });
+    }
+
+    // 6. SPREADER (Mandatory)
+    recItems.push({
+      role: "Spreader / Penetrant:",
+      tech: "Organosilicone Super-Spreader",
+      dosePump: "5 ml / 15L pump",
+      doseLiter: "0.33 ml / Liter",
+      brand: "(Add directly to spray tank last)"
+    });
+
+    // RENDER OUTPUT
+    const outputDiv = document.getElementById('rec-output');
+    let html = `<h3>Recommended Combined Tank Mix Pass (${currentWeather === 'dry' ? 'Dry / Clear Weather' : 'Rainy / Humid Conditions'}):</h3>`;
+    
+    recItems.forEach(item => {
+      html += `
+        <div class="rec-item">
+          <span class="rec-role">${item.role}</span><br>
+          <span class="rec-tech">${item.tech}</span> — 
+          <span class="dose-pump">${item.dosePump}</span> 
+          <span class="dose-liter">${item.doseLiter}</span><br>
+          <span class="rec-brand">${item.brand}</span>
+        </div>
+      `;
+    });
+
+    outputDiv.innerHTML = html;
+  }
+
+  // Initialize on load
+  window.onload = function() {
+    calculateRecommendation();
+  };
 </script>
 
 </body>
